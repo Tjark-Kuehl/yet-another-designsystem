@@ -1,0 +1,41 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "test": {
+      "inputs": [
+        "apps/**/*.ts",
+        "apps/**/*.spec.ts",
+        "apps/**/*.vue",
+        "packages/**/*.ts",
+        "packages/**/*.spec.ts",
+        "packages/**/*.vue"
+      ]
+    },
+    "lint": {
+      "cache": false,
+      "dependsOn": ["^lint"]
+    },
+    "typecheck": {
+      "cache": false,
+      "dependsOn": ["^typecheck"]
+    },
+    "prepare-build": {
+      "outputs": ["dist/**"]
+    },
+    "build": {
+      "outputs": ["dist/**"],
+      "dependsOn": ["^prepare-build"]
+    },
+    "hot": {
+      "persistent": true,
+      "cache": false
+    },
+    "storybook:hot": {
+      "cache": false
+    },
+    "storybook:build": {
+      "outputs": ["storybook-static/**"]
+    }
+  },
+  "globalDependencies": ["tsconfig.json"]
+}

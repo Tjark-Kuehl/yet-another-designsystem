@@ -1,0 +1,13 @@
+{
+  "name": "eslint-config-internal",
+  "main": "index.js",
+  "dependencies": {
+    "@eslint-config-liebe/eslint-config-base": "^1.0.0",
+    "@eslint-config-liebe/eslint-config-typescript": "^1.0.0",
+    "@eslint-config-liebe/eslint-config-vitest": "^1.0.0",
+    "@eslint-config-liebe/eslint-config-vue": "^1.0.0",
+    "@rushstack/eslint-patch": "^1.1.4",
+    "eslint-plugin-perfectionist": "^1.4.0",
+    "eslint-plugin-you-dont-need-lodash-underscore": "^6.12.0"
+  }
+}

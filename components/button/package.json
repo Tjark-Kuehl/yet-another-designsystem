@@ -1,0 +1,9 @@
+{
+  "name": "@yet-another-designsystem/button",
+  "devDependencies": {
+    "builder": "workspace:*"
+  },
+  "scripts": {
+    "build": "node ./node_modules/builder/index.js ./button.vue"
+  }
+}
