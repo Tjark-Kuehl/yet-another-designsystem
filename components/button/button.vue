@@ -1,22 +1,39 @@
 <template>
-  <button class="button">Test</button>
-  <h1>{{ props.text }}</h1>
+  <button class="text-red-500 border-spacing-1">
+    <slot />
+  </button>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{
-  text: string
-}>();
-</script>
+// import { type VariantProps, cva } from 'class-variance-authority';
+// import { twMerge } from 'tailwind-merge';
+// import { computed } from 'vue';
 
-<style>
-.button {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-</style>
+// const buttonVariants = cva('button', {
+//   compoundVariants: [
+//     { class: 'primaryMedium', intent: 'primary', size: 'medium' },
+//   ],
+//   variants: {
+//     intent: {
+//       primary: 'primary',
+//       secondary: 'secondary',
+//     },
+//     size: {
+//       medium: 'medium',
+//       small: 'small',
+//     },
+//   },
+// });
+
+// type ButtonProps = VariantProps<typeof buttonVariants>;
+
+// const props = withDefaults(
+//   defineProps<ButtonProps>(),
+//   {
+//     intent: 'primary',
+//     size: 'medium',
+//   },
+// );
+
+// const classes = computed(() => twMerge(buttonVariants(props)));
+</script>

@@ -1,0 +1,6 @@
+{
+  "extends": ["internal"],
+  "parserOptions": {
+    "project": "tsconfig.json"
+  }
+}

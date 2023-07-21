@@ -40,3 +40,9 @@ yarn-error.log*
 
 # storybook
 storybook-static
+
+# buildfiles
+dist
+
+# clean-package
+package.json.backup

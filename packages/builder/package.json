@@ -2,14 +2,21 @@
   "name": "builder",
   "type": "module",
   "private": true,
-  "bin": "./index.js",
+  "bin": {
+    "builder": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "prepare-build": "tsc index.ts",
+    "prebuild": "tsc --build",
     "lint": "eslint . --cache --ext .ts --fix"
   },
   "dependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
-    "vite": "^4.3.9"
+    "vite": "^4.3.9",
+    "vite-plugin-css-injected-by-js": "^3.2.0",
+    "vite-plugin-dts": "^3.2.0"
   },
   "devDependencies": {
     "eslint-config-internal": "workspace:*",

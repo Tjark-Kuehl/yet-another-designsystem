@@ -3,9 +3,8 @@
   "private": true,
   "scripts": {
     "hot": "turbo run hot --parallel",
+    "prebuild": "turbo run build --summarize",
     "build": "turbo run build --summarize",
-    "build:ci": "turbo run build --output-logs=errors-only",
-    "build:force": "turbo run build --no-cache --force",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "typecheck": "turbo run typecheck"

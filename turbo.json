@@ -19,12 +19,12 @@
       "cache": false,
       "dependsOn": ["^typecheck"]
     },
-    "prepare-build": {
+    "prebuild": {
       "outputs": ["dist/**"]
     },
     "build": {
       "outputs": ["dist/**"],
-      "dependsOn": ["^prepare-build"]
+      "dependsOn": ["^prebuild"]
     },
     "hot": {
       "persistent": true,

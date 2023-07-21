@@ -1,6 +1,7 @@
 {
   "name": "eslint-config-internal",
   "main": "index.js",
+  "private": true,
   "dependencies": {
     "@eslint-config-liebe/eslint-config-base": "^1.0.0",
     "@eslint-config-liebe/eslint-config-typescript": "^1.0.0",

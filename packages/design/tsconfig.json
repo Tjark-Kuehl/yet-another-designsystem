@@ -2,8 +2,6 @@
   "extends": "tsconfig/tsconfig.node.json",
   "include": ["./*"],
   "compilerOptions": {
-    "outDir": "./dist",
-    "target": "ESNext",
-    "esModuleInterop": true,
+    "noEmit": true
   }
 }
