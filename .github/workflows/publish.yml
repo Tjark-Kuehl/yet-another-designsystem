@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - main
+      # - beta
+      # - alpha
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ./.github/actions/setup-node
+
+      - run: pnpm run release:build
+
+      - name: Set package access to public
+        run: npm config set access public
+
+      # - run: pnpm run release
+      #   env:
+      #     NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

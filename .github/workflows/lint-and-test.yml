@@ -1,0 +1,42 @@
+on:
+  push:
+    branches:
+      - main
+      # - beta
+      # - alpha
+
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/setup-node
+        with:
+          version: 18
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: TSC
+        run: pnpm tsc
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: ./.github/actions/setup-node
+        with:
+          version: 18
+
+      - name: Test
+        run: pnpm test
