@@ -31,7 +31,36 @@ await build({
     },
   },
   plugins: [
-    vue(),
+    vue({
+      /**
+       * Remove data-test tags
+       * https://github.com/vitejs/vite/issues/636#issuecomment-665545551
+      */
+      template: {
+        compilerOptions: {
+          nodeTransforms: [
+            (node) => {
+              if (node.type === 1) {
+                for (let i = 0; i < node.props.length; i++) {
+                  const props = node.props[i];
+
+                  const isDataTest = props.name === 'data-test';
+                  // @ts-expect-error - argument is an DirectiveNode and says it doesn't have a content property
+                  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                  const isBoundDataTest = props.name === 'bind' && props.arg?.content === 'data-test';
+
+                  if (isDataTest || isBoundDataTest) {
+                    node.props.splice(i, 1);
+
+                    i -= 1;
+                  }
+                }
+              }
+            },
+          ],
+        },
+      },
+    }),
     dts({
       entryRoot: buildPath,
       tsconfigPath: path.join(buildPath, 'tsconfig.json'),
