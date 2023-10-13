@@ -10,7 +10,7 @@
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.9.7",
-    "turbo": "latest"
+    "@turbo/gen": "^1.10.15",
+    "turbo": "^1.10.15"
   }
 }

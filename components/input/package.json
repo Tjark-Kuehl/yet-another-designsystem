@@ -8,8 +8,7 @@
   "scripts": {
     "pre": "clean-package",
     "post": "clean-package restore",
-    "build": "pnpm pre && npx builder && pnpm post",
-    "lint": "eslint . --cache --fix"
+    "build": "pnpm pre && npx builder && pnpm post"
   },
   "clean-package": "../../clean-package.config.json",
   "dependencies": {

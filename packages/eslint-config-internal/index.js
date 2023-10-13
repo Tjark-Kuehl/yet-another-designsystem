@@ -16,6 +16,10 @@ module.exports = {
   plugins: [
     'you-dont-need-lodash-underscore',
   ],
+  ignorePatterns: ["node_modules/", "dist/", ".turbo/"],
+  parserOptions: {
+    extraFileExtensions: ['.vue', '.json'],
+  },
   rules: {
     // TypeScript specific rule
     '@typescript-eslint/prefer-enum-initializers': 'error',
