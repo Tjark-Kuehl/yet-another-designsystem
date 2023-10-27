@@ -3,7 +3,8 @@
   "scripts": {
     "pre": "clean-package",
     "post": "clean-package restore",
-    "build": "pnpm pre && npx builder && pnpm post",
+    "build": "pnpm pre && npx -p builder build && pnpm post",
+    "hot": "pnpm pre && npx -p builder hmr && pnpm post",
     "lint": "eslint . --cache --fix"
   },
   "dependencies": {
@@ -20,5 +21,20 @@
     "eslint-config-internal": "workspace:*",
     "tsconfig": "workspace:*"
   },
-  "clean-package": "../../clean-package.config.json"
+  "clean-package": "../../clean-package.config.json",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./package.json": "./package.json"
+  }
 }

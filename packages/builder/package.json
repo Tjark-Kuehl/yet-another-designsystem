@@ -3,7 +3,8 @@
   "type": "module",
   "private": true,
   "bin": {
-    "builder": "./dist/index.js"
+    "build": "./dist/build.js",
+    "hmr": "./dist/hmr.js"
   },
   "files": [
     "dist"
